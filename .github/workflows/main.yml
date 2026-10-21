@@ -13,12 +13,13 @@ jobs:
     - name: Zainstaluj biblioteki
       run: |
         python -m pip install --upgrade pip
-        pip install customtkinter requests "python-socketio[client]<5" "python-engineio<4" pystray Pillow pyinstaller
+        pip install -r requirements.txt pyinstaller
     - name: Kompiluj przez PyInstaller
       run: |
-        pyinstaller --onefile --windowed --icon=logo.ico --add-data "logo.ico;." app.py
+        pyinstaller --onefile --windowed --icon=logo.ico --add-data "logo.ico;." --add-data "assets;assets" --collect-all customtkinter --hidden-import=tipply_auth --name=TipplyBridge_Windows app.py
     - name: Wrzuć gotowy plik .exe jako Artefakt
       uses: actions/upload-artifact@v4
       with:
         name: TipplyBridge_Windows
-        path: dist/app.exe
+        path: dist/TipplyBridge_Windows.exe
+
