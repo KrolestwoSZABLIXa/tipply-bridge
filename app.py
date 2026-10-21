@@ -350,7 +350,16 @@ class TipplyBridgeApp:
         }
         try:
             r = requests.post(url, json=data, headers=headers)
-            if r.status_code == 200: self.logger.info(f"✅ Przekazano do SE ({amount} PLN)")
+            if r.status_code == 200:
+                self.logger.info(f"✅ Przekazano do SE ({amount} PLN)")
+            elif r.status_code == 400:
+                msg = r.json().get("message")
+                self.logger.error(f"🔥 Nieprawidłowe żądanie: {msg}")
+            else:
+                err = r.json().get("error")
+                msg = r.json().get("message")
+                self.logger.error(f"🔥 Żądanie zwróciło błąd: {r.status_code}")
+                self.logger.error(f"🔥 {err}: {msg}")
         except Exception: pass
 
     # --- SYSTEM TRAY ---
