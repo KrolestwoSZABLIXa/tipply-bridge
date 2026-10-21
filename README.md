@@ -27,11 +27,11 @@ Pomysł na ten projekt podsunął mi przyjaciel [Oliwierdsn](https://youtube.com
 
 Ekran główny:
 
-![Ekran Główny](screenshot.png)
+![Ekran Główny](image.png)
 
 Przekazany donate w StreamElements, zakładka **Revenue history**:
 
-![Przekazany donejt w SE](image.png)
+![Przekazany donejt w SE](Screenshot_20260422-225036_Chrome.png)
 
 ## 🚀 Jak zacząć? (Dla użytkowników Windowsa)
 
