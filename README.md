@@ -37,7 +37,7 @@ Przekazany donate w StreamElements, zakładka **Revenue history**:
 
 Nie musisz znać się na programowaniu ani instalować Pythona!
 1. Przejdź do zakładki **[Releases](../../releases)** po prawej stronie.
-2. Pobierz najnowszy plik `TipplyBridge_Windows.exe` (działa również na Linuxie - użyj Wine).
+2. Pobierz najnowszy plik `TipplyBridge_[wersja].exe` (działa również na Linuxie - użyj Wine).
 3. Uruchom program i postępuj zgodnie z instrukcjami na ekranie, aby podać swoje tokeny.
 4. Kliknij **START** i ciesz się połączonymi platformami!
 
