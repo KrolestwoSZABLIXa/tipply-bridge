@@ -41,7 +41,38 @@ Nie musisz znać się na programowaniu ani instalować Pythona!
 3. Uruchom program i postępuj zgodnie z instrukcjami na ekranie, aby podać swoje tokeny.
 4. Kliknij **START** i ciesz się połączonymi platformami!
 
+---
+
+## ℹ️ Ważna informacja dot. pobierania adresów e-mail (Tipply)
+
+> [!NOTE]
+> Ze względu na architekturę platformy Tipply (brak publicznego API deweloperskiego, unieważnianie/rotacja tokenów sesji przy logowaniach) oraz zabezpieczenia przeglądarek (izolacja ciasteczek, blokady plików SQLite w tle), **automatyczne wykrywanie sesji z przeglądarki u jednych użytkowników zadziała natychmiast, a u innych może nie odnaleźć aktywnego tokenu.**
+
+### Czy to wpływa na przekazywanie donejtów?
+**Absolutnie nie!** Mostek jest w 100% odporny na brak sesji. Jeśli program nie ma aktywnego tokenu sesyjnego, automatycznie przechodzi w bezpieczny **tryb widgetu** i generuje zastępczy adres e-mail (np. `widz_12345678@tipply.pl`). Wszystkie powiadomienia, kwoty, nicki, wiadomości oraz cele StreamElements działają bez zarzutu.
+
+### Jak ręcznie uzyskać `auth_token` (dla prawdziwych maili widzów):
+Jeśli zależy Ci na pobieraniu oryginalnych adresów e-mail widzów z historii Tipply, a funkcja automatycznego wykrywania nie powiodła się, możesz wkleić token ręcznie w kilka sekund:
+
+1. Zaloguj się na swoje konto w przeglądarce na stronie [tipply.pl](https://tipply.pl/).
+2. Naciśnij klawisz **F12** (lub kliknij prawym przyciskiem myszy w dowolnym miejscu i wybierz **Zbadaj / Inspect**).
+3. Przejdź do zakładki z pamięcią podręczną:
+   * **Google Chrome / Microsoft Edge / Brave / Opera / Vivaldi:**  
+     Wybierz zakładkę **Aplikacja** (*Application*) ➔ z lewego menu rozwiń **Pliki cookie** (*Cookies*) ➔ wybierz `https://tipply.pl` (lub `https://app.tipply.pl`).
+   * **Mozilla Firefox:**  
+     Wybierz zakładkę **Pamięć** (*Storage*) ➔ z lewego menu rozwiń **Ciasteczka** (*Cookies*) ➔ wybierz `https://tipply.pl`.
+4. Na liście ciasteczek znajdź pozycję o nazwie **`auth_token`**.
+5. Kliknij dwukrotnie w pole **Wartość** (*Value*), skopiuj cały ciąg znaków i wklej go w aplikacji:
+   * Podczas pierwszego uruchomienia: w **kroku 3 kreatora**, lub
+   * W dowolnym momencie: klikając **⚙ Ustawienia** ➔ pole **Tipply Sesja** ➔ **ZAPISZ ZMIANY**.
+
+> [!TIP]
+> **Wskazówka:** Każde ponowne zalogowanie się na stronie Tipply w przeglądarce unieważnia poprzedni token i generuje nowy. Jeśli wylogujesz się w przeglądarce, zaktualizuj token w ustawieniach mostka.
+
+---
+
 ## 🐧 Uruchamianie na systemie Linux
+
 
 Ze względu na kaprysy nowoczesnych środowisk Linuxowych w obsłudze zasobnika systemowego (Tray), oficjalnie wspieraną i polecaną wersją jest plik `.exe`. 
 
